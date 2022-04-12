@@ -68,6 +68,7 @@ class Test(unittest.TestCase):
         max = 1000000000000000000 - 1
         solution(max)
 
+    @unittest.skip("solved")
     def test_12865(self):
         from class4.ex_12865 import solution
         N, K = 4, 7
@@ -75,7 +76,8 @@ class Test(unittest.TestCase):
         result = 14
         
         self.assertEqual(result, solution(N, K, backpack))
-    
+
+    @unittest.skip("solved") 
     def test_12865_edge(self):
         from class4.ex_12865 import solution
         N, K = 1, 2
@@ -83,7 +85,8 @@ class Test(unittest.TestCase):
         result = 3
         
         self.assertEqual(result, solution(N, K, backpack))
-        
+
+    @unittest.skip("solved") 
     def test_12865_edge2(self):
         from class4.ex_12865 import solution
         N, K = 10, 999
@@ -91,7 +94,8 @@ class Test(unittest.TestCase):
         result = 4655
         
         self.assertEqual(result, solution(N, K, backpack))
-    
+
+    @unittest.skip("solved") 
     def test_12865_edge3(self):
         from class4.ex_12865 import solution
         N, K = 3, 5
@@ -100,4 +104,95 @@ class Test(unittest.TestCase):
         
         self.assertEqual(result, solution(N, K, backpack))
     
+    def test_22352_1(self):
+        from ex_22352 import Ex_22352
+        N, M = 4, 4
+        before = [
+            [2, 2, 2, 1],
+            [2, 2, 1, 3],
+            [2, 1, 3, 3],
+            [1, 3, 3, 3]
+        ]
+        after = [
+            [4, 4, 4, 1],
+            [4, 4, 1, 3],
+            [4, 1, 3, 3],
+            [1, 3, 3, 3]
+        ]
+        ex = Ex_22352(N, M, before, after)
+        ex.solve()
+        self.assertEqual(None, ex.find_diff_node())
+        
+    def test_22352_2(self):
+        from ex_22352 import Ex_22352
+        N, M = 4, 4
+        before = [
+            [2, 2, 2, 1],
+            [2, 2, 1, 3],
+            [2, 1, 3, 3],
+            [1, 3, 3, 3]
+        ]
+        after = [
+            [2, 2, 2, 1],
+            [2, 2, 1, 3],
+            [2, 1, 3, 3],
+            [1, 3, 3, 3]
+        ]
+        ex = Ex_22352(N, M, before, after)
+        ex.solve()
+        self.assertEqual(None, ex.find_diff_node())
     
+    def test_22352_3(self):
+        from ex_22352 import Ex_22352
+        N, M = 4, 4
+        before = [
+            [2, 2, 2, 1],
+            [2, 2, 1, 3],
+            [2, 1, 3, 3],
+            [1, 3, 3, 3]
+        ]
+        after = [
+            [2, 2, 2, 1],
+            [2, 2, 2, 3],
+            [2, 1, 3, 3],
+            [1, 3, 3, 3]
+        ]
+        ex = Ex_22352(N, M, before, after)
+        ex.solve()
+        self.assertEqual(None, ex.find_diff_node())
+        
+    def test_22352_4(self):
+        from ex_22352 import Ex_22352
+        N, M = 4, 4
+        before = [
+            [2, 2, 2, 1],
+            [2, 2, 1, 2],
+            [2, 1, 2, 2],
+            [1, 2, 2, 2]
+        ]
+        after = [
+            [3, 3, 3, 1],
+            [3, 3, 1, 3],
+            [3, 1, 3, 3],
+            [1, 3, 3, 3]
+        ]
+        ex = Ex_22352(N, M, before, after)
+        ex.solve()
+        self.assertNotEqual(None, ex.find_diff_node())
+        
+    def test_22352_5(self):
+        from ex_22352 import Ex_22352
+        N, M = 3, 5
+        before = [
+            [1, 1, 1, 3, 3],
+            [1, 1, 2, 3, 3],
+            [1, 1, 2, 2, 4]
+        ]
+        after = [
+            [1, 1, 1, 4, 4],
+            [1, 1, 2, 4, 4],
+            [1, 1, 2, 2, 4]
+        ]
+        ex = Ex_22352(N, M, before, after)
+        ex.solve()
+        self.assertEqual(None, ex.find_diff_node())
