@@ -1,4 +1,4 @@
-class Solution {
+class Solution_ {
 
     private val candidateKeys: MutableList<List<Int>> = mutableListOf()
 
